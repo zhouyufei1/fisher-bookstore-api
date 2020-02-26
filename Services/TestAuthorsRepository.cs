@@ -4,10 +4,10 @@ using Fisher.Bookstore.Models;
 namespace Fisher.Bookstore.Services
 {
 
-    public class AuthorsRepository : IAuthorsRepository
+    public class TestAuthorsRepository : IAuthorsRepository
     {
         private Dictionary<int, Author> authors;
-        public AuthorsRepository()
+        public TestAuthorsRepository()
         {
             authors = new Dictionary<int, Author>();
 

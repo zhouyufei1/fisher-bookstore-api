@@ -1,14 +1,15 @@
+using System;
 using System.Collections.Generic;
 using Fisher.Bookstore.Models;
 
 namespace Fisher.Bookstore.Services
 {
 
-    public class BooksRepository : IBooksRepository
+    public class TestBooksRepository : IBooksRepository
     {
         private Dictionary<int, Book> books;
 
-        public BooksRepository()
+        public TestBooksRepository()
         {
             books = new Dictionary<int, Book>();
             new List<Book>
@@ -36,24 +37,24 @@ namespace Fisher.Bookstore.Services
             return book.Id;
         }
 
-        public void DeleteBook(Book book)
+        public void DeleteBook(int bookId)
         {
-            throw new System.NotImplementedException();
+            books.Remove(bookId);
         }
 
-        public Author GetBook(int booksId)
+        public Book GetBook(int bookId)
         {
-            throw new System.NotImplementedException();
+            return books.GetValueOrDefault(bookId);
         }
 
-        public IEnumerable<Author> GetBooks()
+        public IEnumerable<Book> GetBooks()
         {
-            throw new System.NotImplementedException();
+            return books.Values;
         }
 
         public void UpdateBook(Book book)
         {
-            throw new System.NotImplementedException();
+            books[book.Id] = book;
         }
     }
 }

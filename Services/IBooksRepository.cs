@@ -5,10 +5,10 @@ namespace Fisher.Bookstore.Services
 {
     public interface IBooksRepository
     {
-        IEnumerable<Author> GetBooks();
-        Author GetBook(int booksId);
+        IEnumerable<Book> GetBooks();
+        Book GetBook(int booksId);
         int AddBook(Book book);
         void UpdateBook(Book book);
-        void DeleteBook(Book book);
+        void DeleteBook(int bookId);
     }
 }
