@@ -10,5 +10,6 @@ namespace Fisher.Bookstore.Services
         int AddBook(Book book);
         void UpdateBook(Book book);
         void DeleteBook(int bookId);
+        bool BookExists(int bookId);
     }
 }

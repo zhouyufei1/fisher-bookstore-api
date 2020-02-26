@@ -56,5 +56,10 @@ namespace Fisher.Bookstore.Services
         {
             books[book.Id] = book;
         }
+
+        public bool BookExists(int bookId)
+        {
+            return books.ContainsKey(bookId);
+        }
     }
 }

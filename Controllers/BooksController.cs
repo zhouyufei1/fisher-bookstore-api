@@ -25,6 +25,11 @@ namespace Fisher.Bookstore.Controllers
         [HttpGet("{bookId}")]
         public IActionResult Get(int bookId)
         {
+            if (!repository.BookExists(bookId))
+            {
+                return NotFound();
+            }
+
             var book = repository.GetBook(bookId);
             return Ok(book);
         }
@@ -36,9 +41,14 @@ namespace Fisher.Bookstore.Controllers
             return Created($"https://localhost:5001/api/books/{book.Id}", book);
         }
 
-        [HttpPut]
-        public IActionResult Put([FromBody]Book book)
+        [HttpPut("{bookId}")]
+        public IActionResult Put(int bookId, [FromBody]Book book)
         {
+            if (!repository.BookExists(bookId))
+            {
+                return NotFound();
+            }
+
             repository.UpdateBook(book);
             return Ok(book);
         }
@@ -46,6 +56,11 @@ namespace Fisher.Bookstore.Controllers
         [HttpDelete("{bookId}")]
         public IActionResult Delete(int bookId)
         {
+            if (!repository.BookExists(bookId))
+            {
+                return NotFound();
+            }
+
             repository.DeleteBook(bookId);
             return Ok();
         }
