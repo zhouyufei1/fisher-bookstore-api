@@ -8,7 +8,7 @@ namespace Fisher.Bookstore.Services
         IEnumerable<Author> GetAuthors();
         Author GetAuthor(int authorId);
         IEnumerable<Book> GetBooksByAuthor(int authorId);
-        void AddAuthor(Author author);
+        int AddAuthor(Author author);
         void UpdateAuthor(Author author);
         void DeleteAuthor(Author author);
     }

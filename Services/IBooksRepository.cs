@@ -7,7 +7,7 @@ namespace Fisher.Bookstore.Services
     {
         IEnumerable<Author> GetBooks();
         Author GetBook(int booksId);
-        void AddBook(Book book);
+        int AddBook(Book book);
         void UpdateBook(Book book);
         void DeleteBook(Book book);
     }
