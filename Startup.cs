@@ -27,6 +27,7 @@ namespace Fisher.Bookstore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();
             services.AddSingleton<IBooksRepository, TestBooksRepository>();
         }
 
@@ -41,6 +42,10 @@ namespace Fisher.Bookstore
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(b => b.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod());
 
             app.UseAuthorization();
 
