@@ -21,7 +21,7 @@ namespace Fisher.Bookstore.Services
         {
             if (author.Id == 0)
             {
-                int key = authors.Count;
+                int key = authors.Count + 1;
                 while (authors.ContainsKey(key))
                 {
                     key++;
