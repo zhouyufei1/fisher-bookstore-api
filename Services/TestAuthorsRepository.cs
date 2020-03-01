@@ -32,19 +32,19 @@ namespace Fisher.Bookstore.Services
             return author.Id;
         }
 
-        public void DeleteAuthor(Author author)
+        public void DeleteAuthor(int authorId)
         {
-            throw new System.NotImplementedException();
+            authors.Remove(authorId);
         }
 
         public Author GetAuthor(int authorId)
         {
-            throw new System.NotImplementedException();
+            return authors.GetValueOrDefault(authorId);
         }
 
         public IEnumerable<Author> GetAuthors()
         {
-            throw new System.NotImplementedException();
+            return authors.Values;
         }
 
         public IEnumerable<Book> GetBooksByAuthor(int authorId)
@@ -54,7 +54,12 @@ namespace Fisher.Bookstore.Services
 
         public void UpdateAuthor(Author author)
         {
-            throw new System.NotImplementedException();
+            authors[author.Id] = author;
+        }
+
+        public bool AuthorExists(int authorId)
+        {
+            return authors.ContainsKey(authorId);
         }
     }
 }
